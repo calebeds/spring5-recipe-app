@@ -1,5 +1,6 @@
 package me.calebeoliveira.spring5recipeapp.bootstrap;
 
+import lombok.extern.slf4j.Slf4j;
 import me.calebeoliveira.spring5recipeapp.domain.*;
 import me.calebeoliveira.spring5recipeapp.repositories.CategoryRepository;
 import me.calebeoliveira.spring5recipeapp.repositories.RecipeRepository;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
+@Slf4j
 public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
     private final CategoryRepository categoryRepository;
     private final RecipeRepository recipeRepository;
@@ -28,6 +30,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         recipeRepository.saveAll(getRecipes());
+        log.debug("Loading Bootstrap Data");
     }
 
     private List<Recipe> getRecipes() {
