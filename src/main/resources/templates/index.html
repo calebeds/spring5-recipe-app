@@ -25,17 +25,20 @@
                     <h1 class="panel-title">My Recipes!</h1>
                 </div>
                 <div class="panel-body">
-                    <div class="table-resoponsive" th:if="${not #lists.isEmpty(recipes)}">
+                    <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
                         <table class="table table-hover">
                             <thead class="thead-inverse">
                             <tr>
                                 <th>ID</th>
                                 <th>Description</th>
+                                <th>View</th>
                             </tr>
                             </thead>
+                            </tr>
                             <tr th:each="recipe : ${recipes}">
                                 <td th:text="${recipe.id}"></td>
                                 <td th:text="${recipe.description}"></td>
+                                <td><a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}">View</a></td>
                             </tr>
                         </table>
                     </div>

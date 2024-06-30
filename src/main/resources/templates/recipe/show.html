@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Recipes</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
+
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"></script>
+</head>
+<body>
+<div class="container-fluid" style="...">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title" th:text="${recipe.description}">Recipe Description Here!</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Categories:</h5>
+                            </div>
+                            <div class="col-md-9">
+                                <ul>
+                                    <li>cat one</li>
+                                    <li>cat two</li>
+                                    <li>cat three</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Prep Time</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <p>30 min</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>Difficulty:</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <p>Easy</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Cook Time</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <p>30 min</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>Servings:</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <p>4</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Source:</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <p>30 min</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>URL:</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <p>http://www.example.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Ingredients</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul>
+                                    <li>1 Cup of Milk</li>
+                                    <li>1 Teaspoon of Chocolate</li>
+                                    <li>1 Teaspoon of Sugar</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Directions</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse convallis placerat mauris vitae sagittis. Praesent justo arcu, lacinia et magna at, hendrerit scelerisque dui. Aliquam ullamcorper posuere augue eu placerat. Donec massa lectus, ornare a orci in, elementum consequat mi. Pellentesque hendrerit lacus eget leo tincidunt, gravida ullamcorper sapien porta. Vestibulum pretium bibendum leo vel cursus. Nam elementum, neque nec congue tincidunt, risus ex sagittis arcu, rutrum cursus mi ante vitae libero. Pellentesque bibendum arcu erat, facilisis finibus leo scelerisque nec. Sed fermentum et diam iaculis vulputate. Cras vel purus non arcu hendrerit commodo. Donec dignissim nulla vitae condimentum tincidunt. Morbi vitae luctus nisl. Quisque quis leo tempus, venenatis quam sit amet, vestibulum enim. Donec condimentum felis quis orci semper iaculis. Nulla facilisi. Nulla eu nisi malesuada metus ultricies tincidunt.
+
+                                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus sodales sapien et sem tincidunt tempus. Mauris blandit quis velit sed accumsan. Sed aliquam mollis enim eu ornare. Sed hendrerit aliquam quam id pulvinar. Aliquam vehicula ex tortor, sit amet hendrerit erat dictum eget. Proin lorem nisl, hendrerit sit amet tempor ac, volutpat id risus.
+
+                                    Maecenas non velit quis sem ultricies gravida. Curabitur orci augue, ornare eu malesuada sit amet, commodo ut ante. Nullam ac sapien id sapien tristique sollicitudin vitae sed sapien. Curabitur imperdiet leo ut purus placerat, ac volutpat enim porta. Donec ligula felis, porttitor vitae felis eu, imperdiet dictum metus. Nam iaculis condimentum volutpat. Quisque pulvinar tellus vel efficitur luctus. Praesent vel scelerisque sapien. Pellentesque fermentum dolor nec dolor tempus pretium. Mauris dignissim augue vel nunc porttitor molestie. Quisque lorem quam, ultricies ac augue in, tincidunt auctor odio.
+
+                                    Donec vel scelerisque neque. Donec pretium libero ac leo vehicula dictum. Maecenas interdum urna sed ultricies tempus. Integer laoreet dictum mi, ut congue ante. Etiam vel scelerisque velit, nec pharetra massa. Etiam ornare nisl erat, nec tristique eros tristique et. Aenean id mi et felis iaculis aliquet vel vitae felis. Morbi rhoncus, sem quis rutrum feugiat, lorem purus vulputate purus, non faucibus diam magna sed metus. Morbi ornare aliquet aliquam. Proin eu egestas elit. Phasellus egestas ligula et fermentum semper. Integer hendrerit ac diam quis volutpat. Nulla ullamcorper varius vehicula. Cras sed metus feugiat, condimentum mauris in, vehicula eros. Sed ac nibh non justo placerat malesuada. Morbi ac nisl rhoncus, porttitor urna a, interdum lectus.
+
+                                    Donec iaculis mi id auctor cursus. Morbi pretium efficitur nunc eu congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam fermentum, mi id imperdiet varius, lectus lacus porttitor nulla, eu semper nisi lacus vehicula mauris. Maecenas maximus scelerisque scelerisque. Nulla non vulputate leo. Sed tincidunt volutpat lacus, vitae hendrerit est tristique at. Nullam quis nunc ac odio feugiat condimentum eget sed velit. Etiam pellentesque dui ultrices ligula efficitur, vitae luctus ante ornare.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Notes</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse convallis placerat mauris vitae sagittis. Praesent justo arcu, lacinia et magna at, hendrerit scelerisque dui. Aliquam ullamcorper posuere augue eu placerat. Donec massa lectus, ornare a orci in, elementum consequat mi. Pellentesque hendrerit lacus eget leo tincidunt, gravida ullamcorper sapien porta. Vestibulum pretium bibendum leo vel cursus. Nam elementum, neque nec congue tincidunt, risus ex sagittis arcu, rutrum cursus mi ante vitae libero. Pellentesque bibendum arcu erat, facilisis finibus leo scelerisque nec. Sed fermentum et diam iaculis vulputate. Cras vel purus non arcu hendrerit commodo. Donec dignissim nulla vitae condimentum tincidunt. Morbi vitae luctus nisl. Quisque quis leo tempus, venenatis quam sit amet, vestibulum enim. Donec condimentum felis quis orci semper iaculis. Nulla facilisi. Nulla eu nisi malesuada metus ultricies tincidunt.
+
+                                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus sodales sapien et sem tincidunt tempus. Mauris blandit quis velit sed accumsan. Sed aliquam mollis enim eu ornare. Sed hendrerit aliquam quam id pulvinar. Aliquam vehicula ex tortor, sit amet hendrerit erat dictum eget. Proin lorem nisl, hendrerit sit amet tempor ac, volutpat id risus.
+
+                                    Maecenas non velit quis sem ultricies gravida. Curabitur orci augue, ornare eu malesuada sit amet, commodo ut ante. Nullam ac sapien id sapien tristique sollicitudin vitae sed sapien. Curabitur imperdiet leo ut purus placerat, ac volutpat enim porta. Donec ligula felis, porttitor vitae felis eu, imperdiet dictum metus. Nam iaculis condimentum volutpat. Quisque pulvinar tellus vel efficitur luctus. Praesent vel scelerisque sapien. Pellentesque fermentum dolor nec dolor tempus pretium. Mauris dignissim augue vel nunc porttitor molestie. Quisque lorem quam, ultricies ac augue in, tincidunt auctor odio.
+
+                                    Donec vel scelerisque neque. Donec pretium libero ac leo vehicula dictum. Maecenas interdum urna sed ultricies tempus. Integer laoreet dictum mi, ut congue ante. Etiam vel scelerisque velit, nec pharetra massa. Etiam ornare nisl erat, nec tristique eros tristique et. Aenean id mi et felis iaculis aliquet vel vitae felis. Morbi rhoncus, sem quis rutrum feugiat, lorem purus vulputate purus, non faucibus diam magna sed metus. Morbi ornare aliquet aliquam. Proin eu egestas elit. Phasellus egestas ligula et fermentum semper. Integer hendrerit ac diam quis volutpat. Nulla ullamcorper varius vehicula. Cras sed metus feugiat, condimentum mauris in, vehicula eros. Sed ac nibh non justo placerat malesuada. Morbi ac nisl rhoncus, porttitor urna a, interdum lectus.
+
+                                    Donec iaculis mi id auctor cursus. Morbi pretium efficitur nunc eu congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam fermentum, mi id imperdiet varius, lectus lacus porttitor nulla, eu semper nisi lacus vehicula mauris. Maecenas maximus scelerisque scelerisque. Nulla non vulputate leo. Sed tincidunt volutpat lacus, vitae hendrerit est tristique at. Nullam quis nunc ac odio feugiat condimentum eget sed velit. Etiam pellentesque dui ultrices ligula efficitur, vitae luctus ante ornare.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
