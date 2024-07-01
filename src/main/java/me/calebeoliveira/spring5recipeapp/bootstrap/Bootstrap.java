@@ -153,6 +153,10 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         guacRecipe.getCategories().add(americanCategory);
         guacRecipe.getCategories().add(mexicanCategory);
 
+        guacRecipe.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
+        guacRecipe.setServings(4);
+        guacRecipe.setSource("Simply Recipes");
+
         //add to return list
         recipes.add(guacRecipe);
 
