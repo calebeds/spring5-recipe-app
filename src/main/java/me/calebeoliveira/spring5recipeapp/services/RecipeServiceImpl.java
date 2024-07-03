@@ -2,10 +2,14 @@ package me.calebeoliveira.spring5recipeapp.services;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import me.calebeoliveira.spring5recipeapp.commands.RecipeCommand;
+import me.calebeoliveira.spring5recipeapp.converters.RecipeCommandToRecipe;
+import me.calebeoliveira.spring5recipeapp.converters.RecipeToRecipeCommand;
 import me.calebeoliveira.spring5recipeapp.domain.Recipe;
 import me.calebeoliveira.spring5recipeapp.repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,9 +17,13 @@ import java.util.Set;
 @Slf4j
 public class RecipeServiceImpl implements RecipeService {
     private final RecipeRepository recipeRepository;
+    private final RecipeCommandToRecipe recipeCommandToRecipe;
+    private final RecipeToRecipeCommand recipeToRecipeCommand;
 
-    public RecipeServiceImpl(RecipeRepository recipeRepository) {
+    public RecipeServiceImpl(RecipeRepository recipeRepository, RecipeCommandToRecipe recipeCommandToRecipe, RecipeToRecipeCommand recipeToRecipeCommand) {
         this.recipeRepository = recipeRepository;
+        this.recipeCommandToRecipe = recipeCommandToRecipe;
+        this.recipeToRecipeCommand = recipeToRecipeCommand;
     }
 
     @Override
@@ -32,5 +40,15 @@ public class RecipeServiceImpl implements RecipeService {
         log.debug("Calling find by id");
 
         return recipeRepository.findById(id).orElseThrow(() -> new RuntimeException("Recipe Not Found"));
+    }
+
+    @Override
+    @Transactional
+    public RecipeCommand saveRecipeCommand(RecipeCommand recipeCommand) {
+        Recipe detachedRecipe = recipeCommandToRecipe.convert(recipeCommand);
+
+        Recipe savedRecipe = recipeRepository.save(detachedRecipe);
+        log.debug("Saved RecipeId: " + savedRecipe.getId());
+        return recipeToRecipeCommand.convert(savedRecipe);
     }
 }
