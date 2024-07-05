@@ -46,7 +46,7 @@ public class IngredientCommandToIngredientTest {
                 .id(ID_VALUE)
                 .amount(AMOUNT)
                 .description(DESCRIPTION)
-                .unitOfMeasure(unitOfMeasureCommand)
+                .uom(unitOfMeasureCommand)
                 .build();
 
         //when

@@ -2,9 +2,7 @@ package me.calebeoliveira.spring5recipeapp.converters;
 
 import lombok.Synchronized;
 import me.calebeoliveira.spring5recipeapp.commands.IngredientCommand;
-import me.calebeoliveira.spring5recipeapp.commands.UnitOfMeasureCommand;
 import me.calebeoliveira.spring5recipeapp.domain.Ingredient;
-import me.calebeoliveira.spring5recipeapp.domain.Notes;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
@@ -31,7 +29,7 @@ public class IngredientCommandToIngredient implements Converter<IngredientComman
                 .id(source.getId())
                 .amount(source.getAmount())
                 .description(source.getDescription())
-                .uom(uomConverter.convert(source.getUnitOfMeasure()))
+                .uom(uomConverter.convert(source.getUom()))
                 .build();
     }
 }
