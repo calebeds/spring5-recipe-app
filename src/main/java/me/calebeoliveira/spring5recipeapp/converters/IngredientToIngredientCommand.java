@@ -7,6 +7,10 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
+import static java.util.Objects.nonNull;
+
 @Component
 public class IngredientToIngredientCommand implements Converter<Ingredient, IngredientCommand> {
 
@@ -27,6 +31,7 @@ public class IngredientToIngredientCommand implements Converter<Ingredient, Ingr
 
         return IngredientCommand.builder()
                 .id(source.getId())
+                .recipeId(nonNull(source.getRecipe()) ? source.getRecipe().getId() : null)
                 .amount(source.getAmount())
                 .description(source.getDescription())
                 .uom(uomConverter.convert(source.getUom()))
