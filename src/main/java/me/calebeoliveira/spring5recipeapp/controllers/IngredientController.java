@@ -2,6 +2,8 @@ package me.calebeoliveira.spring5recipeapp.controllers;
 
 import lombok.extern.slf4j.Slf4j;
 import me.calebeoliveira.spring5recipeapp.commands.IngredientCommand;
+import me.calebeoliveira.spring5recipeapp.commands.RecipeCommand;
+import me.calebeoliveira.spring5recipeapp.commands.UnitOfMeasureCommand;
 import me.calebeoliveira.spring5recipeapp.services.IngredientService;
 import me.calebeoliveira.spring5recipeapp.services.RecipeService;
 import me.calebeoliveira.spring5recipeapp.services.UnitOfMeasureService;
@@ -44,6 +46,26 @@ public class IngredientController {
         model.addAttribute("ingredient", ingredientService.findByRecipeIdAndIngredientId(Long.parseLong(recipeId), Long.parseLong(id)));
 
         return "recipe/ingredient/show";
+    }
+
+    @GetMapping
+    @RequestMapping("recipe/{recipeId}/ingredient/new")
+    public String newRecipe(@PathVariable String recipeId, Model model) {
+        // make sure we have a good id value
+        RecipeCommand recipeCommand = recipeService.findCommandById(Long.parseLong(recipeId));
+        //TODO: raise exception if null
+
+        // need to return back id for hidden form property
+        IngredientCommand ingredientCommand = new IngredientCommand();
+        ingredientCommand.setRecipeId(Long.parseLong(recipeId));
+        model.addAttribute("ingredient", ingredientCommand);
+
+        // init uom
+        ingredientCommand.setUom(new UnitOfMeasureCommand());
+
+        model.addAttribute("uomList", unitOfMeasureService.listAllUoms());
+
+        return "recipe/ingredient/ingredientform";
     }
 
     @GetMapping
