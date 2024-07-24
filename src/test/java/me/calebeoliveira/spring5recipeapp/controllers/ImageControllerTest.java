@@ -58,7 +58,7 @@ public class ImageControllerTest {
     @Test
     public void handleImagePost() throws Exception {
         MockMultipartFile multipartFile =
-                new MockMultipartFile("file", "texting.txt", "text/plain",
+                new MockMultipartFile("imagefile", "texting.txt", "text/plain",
                         "Calebe Dos Santos Oliveira".getBytes());
 
         this.mockMvc.perform(multipart("/recipe/1/image").file(multipartFile))
