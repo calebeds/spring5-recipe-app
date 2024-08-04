@@ -2,6 +2,7 @@ package me.calebeoliveira.spring5recipeapp.controllers;
 
 import me.calebeoliveira.spring5recipeapp.commands.RecipeCommand;
 import me.calebeoliveira.spring5recipeapp.domain.Recipe;
+import me.calebeoliveira.spring5recipeapp.exceptions.NotFoundException;
 import me.calebeoliveira.spring5recipeapp.services.RecipeService;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,6 +49,17 @@ public class RecipeControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("recipe/show"))
                 .andExpect(model().attributeExists("recipe"));
+    }
+
+    @Test
+    public void testGetRecipeNotFound() throws Exception {
+        Recipe recipe = new Recipe();
+        recipe.setId(1L);
+
+        when(recipeService.findById(anyLong())).thenThrow(NotFoundException.class);
+
+        mockMvc.perform(get("/recipe/1/show"))
+                .andExpect(status().isNotFound());
     }
 
     @Test

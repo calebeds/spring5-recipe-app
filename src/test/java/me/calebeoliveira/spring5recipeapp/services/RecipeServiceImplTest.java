@@ -3,6 +3,7 @@ package me.calebeoliveira.spring5recipeapp.services;
 import me.calebeoliveira.spring5recipeapp.converters.RecipeCommandToRecipe;
 import me.calebeoliveira.spring5recipeapp.converters.RecipeToRecipeCommand;
 import me.calebeoliveira.spring5recipeapp.domain.Recipe;
+import me.calebeoliveira.spring5recipeapp.exceptions.NotFoundException;
 import me.calebeoliveira.spring5recipeapp.repositories.RecipeRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,6 +45,17 @@ public class RecipeServiceImplTest {
 
         assertEquals(1, recipes.size());
         verify(recipeRepository, times(1)).findAll();
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void testGetRecipeByIdTest() throws Exception {
+        Optional<Recipe> recipeOptional = Optional.empty();
+
+        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+
+        Recipe recipeReturned = recipeService.findById(1L);
+
+        //should go boom
     }
 
     @Test

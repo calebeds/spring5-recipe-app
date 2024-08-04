@@ -6,6 +6,7 @@ import me.calebeoliveira.spring5recipeapp.commands.RecipeCommand;
 import me.calebeoliveira.spring5recipeapp.converters.RecipeCommandToRecipe;
 import me.calebeoliveira.spring5recipeapp.converters.RecipeToRecipeCommand;
 import me.calebeoliveira.spring5recipeapp.domain.Recipe;
+import me.calebeoliveira.spring5recipeapp.exceptions.NotFoundException;
 import me.calebeoliveira.spring5recipeapp.repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +40,7 @@ public class RecipeServiceImpl implements RecipeService {
     public Recipe findById(long id) {
         log.debug("Calling find by id");
 
-        return recipeRepository.findById(id).orElseThrow(() -> new RuntimeException("Recipe Not Found"));
+        return recipeRepository.findById(id).orElseThrow(() -> new NotFoundException("Recipe Not Found"));
     }
 
     @Override
