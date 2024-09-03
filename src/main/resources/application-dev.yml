@@ -5,7 +5,15 @@ spring:
     password: calebe
   jpa:
     hibernate:
-      ddl-auto: create-and
-    database-platform: org.hibernate.dialect.MySQLDialect
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     database: mysql
     show-sql: true
+#    properties:
+#      javax:
+#        persistence:
+#          schema-generation:
+#            create-source: metadata
+#            scripts:
+#              action: create
+#              create-target: calebe_database_create.sql
