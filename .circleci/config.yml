@@ -27,7 +27,12 @@ jobs:
       # Then run your tests!
       - run:
           name: Test
-          command: mvn test
+          command: mvn test cobertura:cobertura
+
+      # code cov
+      - run:
+        name: CodeCov
+        command: bash <(curl -s https://codecov.io/bash)
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
