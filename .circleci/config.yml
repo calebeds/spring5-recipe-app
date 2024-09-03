@@ -27,11 +27,11 @@ jobs:
       # Then run your tests!
       - run:
           name: Test
-          command: mvn test cobertura:cobertura
+          command: mvn test jacoco:report
 
       # code cov
       - run:
-          name: CodeCov
+          name: Jacoco
           command: bash <(curl -s https://codecov.io/bash)
 
 # Orchestrate jobs using workflows
