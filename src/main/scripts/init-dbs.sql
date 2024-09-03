@@ -16,7 +16,7 @@ GRANT INSERT ON calebe_prod.* to 'calebe_prod_user'@'localhost';
 GRANT DELETE ON calebe_prod.* to 'calebe_prod_user'@'localhost';
 GRANT UPDATE ON calebe_prod.* to 'calebe_prod_user'@'localhost';
 
-# To get connection via docker
+# Using db via docker
 
 CREATE USER 'calebe_dev_user'@'%' IDENTIFIED BY 'calebe';
 CREATE USER 'calebe_prod_user'@'%' IDENTIFIED BY 'calebe';
