@@ -3,6 +3,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: calebe_prod_user
     password: calebe
+    platform: mysql
   jpa:
     hibernate:
       ddl-auto: validate

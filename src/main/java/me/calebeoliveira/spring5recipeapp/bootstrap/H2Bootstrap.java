@@ -6,6 +6,7 @@ import me.calebeoliveira.spring5recipeapp.repositories.CategoryRepository;
 import me.calebeoliveira.spring5recipeapp.repositories.RecipeRepository;
 import me.calebeoliveira.spring5recipeapp.repositories.UnitOfMeasureRepository;
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
@@ -17,12 +18,13 @@ import java.util.Optional;
 
 @Component
 @Slf4j
-public class Bootstrap implements ApplicationListener<ContextRefreshedEvent>{
+@Profile("default")
+public class H2Bootstrap implements ApplicationListener<ContextRefreshedEvent>{
     private final CategoryRepository categoryRepository;
     private final RecipeRepository recipeRepository;
     private final UnitOfMeasureRepository unitOfMeasureRepository;
 
-    public Bootstrap(CategoryRepository categoryRepository, RecipeRepository recipeRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
+    public H2Bootstrap(CategoryRepository categoryRepository, RecipeRepository recipeRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
         this.categoryRepository = categoryRepository;
         this.recipeRepository = recipeRepository;
         this.unitOfMeasureRepository = unitOfMeasureRepository;
@@ -31,7 +33,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent>{
     @Override
     @Transactional
     public void onApplicationEvent(ContextRefreshedEvent event) {
-//        recipeRepository.saveAll(getRecipes());
+        recipeRepository.saveAll(getRecipes());
         log.debug("Loading Bootstrap Data");
     }
 
